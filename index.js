@@ -1,9 +1,13 @@
 var ndarray = require('ndarray');
+var scratch = require('ndarray-scratch');
 
 module.exports = function (L, U, B, X, Y) {
-    var m = L.shape[0], n = L.shape[1];
-    if (!X) X = new Float64Array(m);
-    if (!Y) Y = new Float64Array(m);
+    var m = L.shape[0], n = L.shape[1], freeY = false;
+    if (!X) X = ndscratch.malloc([m]);
+    if (!Y) {
+        Y = ndscratch.malloc([m]);
+        freeY = true
+    }
     
     // LY = B, solve for Y
     for (var y = 0; y < n; y++) {
@@ -21,6 +25,10 @@ module.exports = function (L, U, B, X, Y) {
             c += U.get(x, y) * X.get(x);
         }
         X.set(y, (Y.get(y) - c) / U.get(y, y));
+    }
+
+    if(freeY) {
+        pool.free(Y)
     }
     
     return X;
