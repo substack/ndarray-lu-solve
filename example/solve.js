@@ -9,4 +9,5 @@ var A = ndarray([
     -2, 1, 2, -3
 ], [ 4, 3 ]);
 var B = zeros([ 4, 3 ]);
-console.log(solve(A, B));
+solve(A, B);
+//console.log(show(solve(A, B)));
