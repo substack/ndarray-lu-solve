@@ -5,11 +5,6 @@ var ops = require('ndarray-ops');
 module.exports = function (L, U, B, X, Y) {
     var m = L.shape[0], n = L.shape[1];
     
-    console.log('L=\n' + show(L));
-    console.log('U=\n' + show(U));
-    console.log('B=\n' + show(B));
-    console.log();
-    
     // LY = B, solve for Y
     for (var y = 0; y < n; y++) {
         var c = 0;
@@ -27,4 +22,6 @@ module.exports = function (L, U, B, X, Y) {
         }
         X.set(y, (Y.get(y) - c) / U.get(y, y));
     }
+    
+    return X;
 };
