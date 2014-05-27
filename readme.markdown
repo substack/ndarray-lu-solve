@@ -2,6 +2,10 @@
 
 solve a system of linear equations from an LU decomposition
 
+[![testling badge](https://ci.testling.com/substack/ndarray-lu-solve.png)](https://ci.testling.com/substack/ndarray-lu-solve)
+
+[![build status](https://secure.travis-ci.org/substack/ndarray-lu-solve.png)](http://travis-ci.org/substack/ndarray-lu-solve)
+
 # example
 
 ``` js
