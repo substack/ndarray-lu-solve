@@ -1,0 +1,37 @@
+{
+  "name": "ndarray-lu-solve",
+  "version": "1.0.0",
+  "description": "solve a linear system of equations with an LU decomposition",
+  "main": "index.js",
+  "dependencies": {
+    "ndarray": "^1.0.14"
+  },
+  "devDependencies": {
+    "tape": "^2.12.1",
+    "ndarray-crout-decomposition": "^1.0.0",
+    "zeros": "~0.0.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/ndarray-lu-solve.git"
+  },
+  "homepage": "https://github.com/substack/ndarray-lu-solve",
+  "keywords": [
+    "ndarray",
+    "lu",
+    "matrix",
+    "decomposition",
+    "linear",
+    "equations",
+    "math"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT"
+}

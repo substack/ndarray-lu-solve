@@ -1,6 +1,4 @@
 var ndarray = require('ndarray');
-var show = require('ndarray-show');
-var ops = require('ndarray-ops');
 
 module.exports = function (L, U, B, X, Y) {
     var m = L.shape[0], n = L.shape[1];

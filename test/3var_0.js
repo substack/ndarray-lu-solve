@@ -1,6 +1,5 @@
 var test = require('tape');
 var solve = require('../');
-var show = require('ndarray-show');
 var crout = require('ndarray-crout-decomposition');
 var ndarray = require('ndarray');
 var zeros = require('zeros');
