@@ -1,7 +1,7 @@
 {
   "name": "ndarray-lu-solve",
   "version": "1.0.0",
-  "description": "solve a linear system of equations with an LU decomposition",
+  "description": "solve a linear system of equations from an LU decomposition",
   "main": "index.js",
   "dependencies": {
     "ndarray": "^1.0.14"

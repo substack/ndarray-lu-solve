@@ -2,6 +2,8 @@ var ndarray = require('ndarray');
 
 module.exports = function (L, U, B, X, Y) {
     var m = L.shape[0], n = L.shape[1];
+    if (!X) X = new Float64Array(m);
+    if (!Y) Y = new Float64Array(m);
     
     // LY = B, solve for Y
     for (var y = 0; y < n; y++) {
