@@ -14,6 +14,9 @@ var L = zeros([ 3, 3 ]);
 var U = zeros([ 3, 3 ]);
 crout(A.hi(3,3), L, U);
 
-var solution = ndarray(new Float64Array(3));
-solve(L, U, A.lo(3,0).pick(0), solution);
-console.log(show(solution));
+var X = ndarray(new Float64Array(3));
+var Y = ndarray(new Float64Array(3));
+solve(L, U, A.lo(3,0).pick(0), X, Y);
+
+console.log('X=\n' + show(X));
+console.log('Y=\n' + show(Y));
