@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "tape": "^2.12.1",
-    "ndarray-crout-decomposition": "^1.0.0",
+    "ndarray-crout-decomposition": "^1.1.0",
     "zeros": "~0.0.0"
   },
   "scripts": {
