@@ -30,6 +30,10 @@ module.exports = function (L, U, B, X, Y) {
     if(freeY) {
         pool.free(Y)
     }
+
+    if(freeY) {
+        pool.free(Y)
+    }
     
     return X;
 };
