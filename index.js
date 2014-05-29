@@ -20,7 +20,7 @@ module.exports = function (L, U, B, X, Y) {
     
     //UX = Y, solve for X
     for (var y = n - 1; y >= 0; y--) {
-        var c = X.get(y);
+        var c = 0;
         for (var x = n - 1; x > y; x--) {
             c += U.get(x, y) * X.get(x);
         }
