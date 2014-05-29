@@ -14,8 +14,6 @@ var U = zeros([ size, size ]);
 var expected = [ 0, 1 ];
 
 test('2-variable system', function (t) {
-
-
     crout(A.hi(size,size), L, U);
     
     var X = new Float64Array(size);

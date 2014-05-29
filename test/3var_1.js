@@ -22,3 +22,15 @@ test('3-variable system', function (t) {
     t.deepEqual([].slice.call(X), [ -8, 1, -2 ]);
     t.end();
 });
+
+test('3-variable system in place', function (t) {
+    crout(A.hi(3,3), L, L);
+    
+    var X = new Float64Array(3);
+    var Y = new Float64Array(3);
+    var solution = solve(L, L, A.lo(3,0).pick(0), X, Y);
+    
+    t.equal(X, solution);
+    t.deepEqual([].slice.call(X), [ -8, 1, -2 ]);
+    t.end();
+});
