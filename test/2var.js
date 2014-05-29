@@ -32,3 +32,23 @@ test('2-variable system', function (t) {
     }
     t.end();
 });
+
+test('2-variable system in place', function (t) {    
+    crout(A.hi(size,size), L, L);
+    
+    var X = new Float64Array(size);
+    var Y = new Float64Array(size);
+    var solution = solve(L, L, A.lo(size,0).pick(0), X, Y);
+    
+    t.equal(X, solution);
+    t.deepEqual([].slice.call(X), expected);
+    
+    for (var y = 0; y < size; y++) {
+        var c = 0;
+        for (var i = 0; i < size; i++) {
+            c += X[i] * A.get(i, y);
+        }
+        t.equal(c, A.get(size, y));
+    }
+    t.end();
+});
