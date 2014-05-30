@@ -93,11 +93,18 @@ var solve = require('ndarray-lu-solve')
 Given an `L` and `U` ndarrays from a decomposition and a vector `B`, solve the
 system `LY = B` for `Y` and `UX = Y` for `X`.
 
+`L` and `U` can also be the same matrix.
+
 The `solution` is written to `X` as the computation procedes but is also the
 return value.
 
 Optional `X` and `Y` parameters are modified in-place and contain elements of
 the result. If not given, `X` and `Y` will be allocated.
+
+## var solution = solve(LU, B, X, Y)
+
+You can omit the `U` parameter if you have a `L` and `U` values packed into the
+same matrix. The other parameters work the same.
 
 # install
 
