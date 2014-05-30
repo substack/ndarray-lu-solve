@@ -43,6 +43,45 @@ solution:
    2.000    3.000   -1.000
 ```
 
+You can pass fewer of the parameters if you want and use a packed representation
+for L and U in the same matrix:
+
+``` js
+var solve = require('ndarray-lu-solve');
+var show = require('ndarray-show');
+var crout = require('ndarray-crout-decomposition');
+var ndarray = require('ndarray');
+var zeros = require('zeros');
+
+var A = ndarray(
+    [ 2, 1, -1, 8, -3, -1, 2, -11, -2, 1, 2, -3 ],
+    [ 4, 3 ], [ 1, 4 ]
+);
+var LU = zeros([ 3, 3 ]);
+crout(A.hi(3,3), LU);
+
+var solution = solve(LU, A.lo(3,0).pick(0));
+
+console.log('input:\n' + show(A), '\n');
+console.log('solution:\n' + show(solution));
+```
+
+output:
+
+```
+input:
+   2.000    1.000   -1.000    8.000
+  -3.000   -1.000    2.000  -11.000
+  -2.000    1.000    2.000   -3.000 
+
+solution:
+   2.000    3.000   -1.000
+```
+
+Just note that it's up to you to
+[`ndscratch.free()`](https://npmjs.org/package/ndarray-scratch)
+the `solution` you get back to prevent leaking memory.
+
 # methods
 
 ``` js
