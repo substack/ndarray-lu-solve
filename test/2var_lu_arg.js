@@ -13,7 +13,7 @@ var LU = zeros([ size, size ]);
 var expected = [ 0, 1 ];
 
 test('2-variable system, in-place LU', function (t) {
-    crout(A.hi(size,size), LU, LU);
+    crout(A.hi(size,size), LU);
     
     var X = new Float64Array(size);
     var Y = new Float64Array(size);

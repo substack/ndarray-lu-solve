@@ -3,6 +3,12 @@ var ndscratch = require('ndarray-scratch');
 
 module.exports = function (L, U, B, X, Y) {
     var m = L.shape[0], n = L.shape[1], freeY = false;
+    if (U.dimension === 1) {
+        Y = X;
+        X = B;
+        B = U;
+        U = L;
+    }
     if (!X) X = ndscratch.malloc([m]);
     if (!Y) {
         Y = ndscratch.malloc([m]);
