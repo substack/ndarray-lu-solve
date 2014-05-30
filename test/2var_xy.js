@@ -3,6 +3,7 @@ var solve = require('../');
 var crout = require('ndarray-crout-decomposition');
 var ndarray = require('ndarray');
 var zeros = require('zeros');
+var show = require('ndarray-show');
 
 var size = 2;
 var A = ndarray(
@@ -37,12 +38,12 @@ test('2-variable system, no XY', function (t) {
     
     var solution = solve(L, U, A.lo(size,0).pick(0));
     
-    t.deepEqual([].slice.call(solution), expected);
+    t.deepEqual(show(solution), show(expected));
     
     for (var y = 0; y < size; y++) {
         var c = 0;
         for (var i = 0; i < size; i++) {
-            c += solution[i] * A.get(i, y);
+            c += solution.get(i) * A.get(i, y);
         }
         t.equal(c, A.get(size, y));
     }
