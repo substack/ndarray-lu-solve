@@ -1,5 +1,5 @@
 var ndarray = require('ndarray');
-var scratch = require('ndarray-scratch');
+var ndscratch = require('ndarray-scratch');
 
 module.exports = function (L, U, B, X, Y) {
     var m = L.shape[0], n = L.shape[1], freeY = false;
@@ -26,10 +26,8 @@ module.exports = function (L, U, B, X, Y) {
         }
         X.set(y, Y.get(y) - c);
     }
-
-    if(freeY) {
-        pool.free(Y)
-    }
+    
+    if (freeY) ndscratch.free(Y);
     
     return X;
 };
